@@ -1,0 +1,205 @@
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0 !important;
+}
+
+h1,
+p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h2, h3 {
+  font-family: var(--ff-oswald);
+}
+
+.container {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --green-blue-crayola: hsl(202, 75%, 47%);
+  --prussian-blue: hsl(202, 72%, 15%);
+  --eerie-black: hsl(210, 11%, 15%);
+  --dark-orange: hsl(32, 100%, 50%);
+  --alice-blue: hsl(203, 100%, 97%);
+  --light-gray: hsl(0, 0%, 80%);
+  --indigo-dye: hsl(202, 64%, 26%);
+  --cultured-1: hsl(0, 0%, 94%);
+  --cultured-2: hsl(0, 0%, 95%);
+  --cultured-3: hsl(0, 0%, 95%);
+  --plutinum: hsl(0, 0%, 91%);
+  --black_60: hsla(0, 0%, 0%, 0.6);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --onyx: hsl(0, 0%, 24%);
+  --ff-oswald: "Oswald", sans-serif;
+  --ff-rubik: "Rubik", sans-serif;
+  --fs-1: 6rem;
+  --fs-2: 5rem;
+  --fs-3: 4rem;
+  --fs-4: 3rem;
+  --fs-5: 2.2rem;
+  --fs-6: 2rem;
+  --fs-7: 1.8rem;
+  --fs-8: 1.5rem;
+  --fs-9: 1.4rem;
+  --fs-10: 1.2rem;
+  --fs-11: 1rem;
+  --fs-12: 7rem;
+  --fs-13: 8rem;
+  --fs-14: 9rem;
+  --fs-15: 10rem;
+  --fs-16: 11rem;
+  --fs-17: 12rem;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  --transition: 0.25s ease;
+  --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+  --shadow-1: 2px 0 50px hsla(0, 0%, 0%, 0.2);
+  --shadow-2: 0px 40px 60px hsla(202, 75%, 47%, 0.7);
+  --shadow-3: 0px 0px 60px hsla(202, 75%, 47%, 0.5);
+  --shadow-4: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --section-padding: 7.5rem;
+}
+
+.project-detail .left .video-area {
+  position: relative;
+}
+.project-detail .left .video-area .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+.project-detail .left .video-area .content a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border: 2px solid;
+  border-radius: 50%;
+  color: var(--dark-orange);
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: uppercase;
+  font-family: var(--ff-rubik);
+  z-index: 1;
+}
+@-webkit-keyframes ripple {
+  70% {
+    box-shadow: 0 0 0 40px rgba(10, 165, 205, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(10, 165, 205, 0);
+  }
+}
+@keyframes ripple {
+  70% {
+    box-shadow: 0 0 0 40px rgba(10, 165, 205, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(10, 165, 205, 0);
+  }
+}
+.project-detail .left .video-area .content a ::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.9);
+  -webkit-animation: ripple 3s infinite;
+          animation: ripple 3s infinite;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+.project-detail .left .video-area .content a ::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.9);
+  -webkit-animation: ripple 3s infinite;
+          animation: ripple 3s infinite;
+  transition: all 0.4s ease;
+  z-index: -1;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.project-detail .right img {
+  width: 100%;
+}
+.project-detail .right .info {
+  background-color: var(--cultured-3);
+  padding: 35px 30px 35px;
+  width: 100%;
+}
+.project-detail .right .info ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 11px !important;
+  margin-top: 13px;
+}
+.project-detail .right .info ul li .title-box {
+  position: relative;
+  display: block;
+}
+.project-detail .right .info ul li .title-box p {
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+}
+.project-detail .right .info ul li .text-box p {
+  font-size: 14px;
+  color: var(--onyx);
+  font-weight: 600;
+}/*# sourceMappingURL=project_detail.css.map */

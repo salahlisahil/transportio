@@ -1,0 +1,187 @@
+@import '../reset';
+@import '../partials/mixin';
+
+
+body {
+    overflow-x: hidden;
+}
+
+header {
+    position: relative;
+
+    .hero-shape-img {
+        position: absolute;
+    }
+
+    .hero-shape-img-bottom {
+        right: 29px;
+        bottom: 30px;
+    }
+
+    .hero-shape-img-top {
+        top: 88px;
+        left: 42px;
+    }
+}
+
+#contact-area {
+    position: relative;
+
+    .img-one,
+    .img-two {
+        opacity: 0.1;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .img-one {
+        top: 65px;
+        left: -10px;
+    }
+
+    .img-two {
+        top: 316px;
+        right: 60px;
+    }
+
+    .container {
+        .inner {
+            position: relative;
+            top: 80px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .left,
+            .right {
+                background: var(--cultured-3);
+                border-radius: 4px;
+                padding: 50px 40px 51px;
+                width: 48%;
+
+                .title {
+                    h2 {
+                        font-size: 36px !important;
+                    }
+                }
+            }
+
+            .left {
+                ul {
+                    margin: 30px 0;
+
+                    li {
+                        @include displayFlex;
+                        margin-top: 30px;
+                        position: relative;
+
+                        .icon-box {
+                            margin-right: 12px;
+                            width: 60px;
+                            height: 60px;
+                            background: var(--dark-orange);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-top: 60px solid var(--cultured-3);
+                            border-right: 60px solid transparent;
+
+                            i {
+                                position: absolute;
+                                bottom: 52%;
+                                left: 3%;
+                                color: var(--eerie-black);
+                                transition: all 500ms ease;
+                            }
+
+                        }
+
+                        .text-box {
+                            p {
+                                text-transform: capitalize;
+                                color: var(--black_60);
+                            }
+
+                            h2 {
+                                margin-top: 10px;
+                                color: var(--eerie-black);
+
+                                a {
+                                    color: var(--eerie-black);
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            i {
+                                transform: rotateY(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right {
+                form {
+                    margin: 30px 0;
+
+                    .inputs,
+                    .inputs {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 20px;
+                    }
+
+                    input {
+                        color: black;
+                        font-size: 16px;
+                        font-weight: 500;
+                        width: 100%;
+                        height: 54px;
+                        background: var(--white);
+                        border: 0px solid #e4e4e4;
+                        padding: 0 20px;
+                        margin-bottom: 20px;
+                        border-radius: 4px;
+                        outline: none;
+                        transition: all 200ms linear;
+                        transition-delay: 0.1s;
+                    }
+
+                    textarea {
+                        color: rgba(96, 102, 108, 0.6);
+                        font-size: 16px;
+                        font-weight: 500;
+                        width: 100%;
+                        height: 120px;
+                        border: 0px solid #e4e4e4;
+                        background: var(--white);
+                        padding: 18px 20px 0px;
+                        margin-bottom: 20px;
+                        outline: none;
+                        transition: all 200ms linear;
+                        transition-delay: 0.1s;
+                        border-radius: 4px;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .map {
+        position: absolute;
+        top: 125%;
+
+        iframe {
+            width: 100vw;
+        }
+    }
+
+}
+
+footer {
+    position: relative;
+    top: 556px;
+}
+

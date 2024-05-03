@@ -1,0 +1,38 @@
+@import '../reset';
+@import '../partials/mixin';
+
+
+#privacy {
+    padding-block: var(--section-padding);
+
+    .content {
+        margin: 15px 0;
+        line-height: 1.4;
+        color: var(--black);
+        font-family: var(--ff-rubik);
+
+        ul{
+            margin: 15px 0 ;
+            h4{
+                margin: 15px 0 !important;
+            }
+            li{
+                list-style: initial;
+                margin-left: 40px;
+            }
+        }
+    }
+}
+
+#terms{
+    padding-block: var(--section-padding);
+    p{
+        margin: 10px 0 !important;
+    }
+    ul{
+        li{
+            list-style: initial;
+            margin-left: 40px;
+        }
+    }
+}

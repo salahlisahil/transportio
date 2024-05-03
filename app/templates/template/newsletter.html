@@ -1,0 +1,21 @@
+{% load static %}
+
+<section id="newsletter">
+    <div class="newsletter-area">
+        <div class="container">
+            <div class="img">
+                <img src="{% static "/assets/imgs/newsletter-banner.png" %}" alt="">
+            </div>
+            <div class="newsletter-content">
+                <h2 class="title">Subscribe for offers and news</h2>
+                <form action="{% url 'subscribe' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="email" name="email" placeholder="Enter Your Email">
+                    <button type="submit">Subscribe Now</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section>

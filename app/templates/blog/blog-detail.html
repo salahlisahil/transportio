@@ -1,0 +1,216 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'template/head.html' %}
+    <!-- added css -->
+    <link rel="stylesheet" href="{% static "/assets/scss/layout/layout.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/common/common.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/detail/detail.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/blog/blog-detail.css" %}">
+
+</head>
+
+<body id="top">
+    <div class="overlay"></div>
+
+    <!-- start header -->
+    <header style="background-image: url('{% static "/assets/imgs/hero-banner.jpg" %}');">
+
+        <!-- start navbar -->
+        {% include 'template/navbar.html' %}
+        <!-- end navbar -->
+
+      
+        <!-- start breadcrumb section -->
+        <section id="breadcrumb-area">
+            <div class="container" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                <h1 class="service-name">{{ post.title }}</h1>
+                <span>
+                    <a href="{% url 'index' %}">Home </a>
+                    <i class="fa-solid fa-arrow-right fa-sm"></i>
+                    <a href="{% url 'index' %}#blog">Blogs </a>
+                    <i class="fa-solid fa-arrow-right fa-sm"></i>
+                    <a class="service-name"> {{ post.title }}</a>
+                </span>
+            </div>
+        </section>
+        <img class="hero-shape-img hero-shape-img-top" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+        <img class="hero-shape-img hero-shape-img-bottom" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+        <!-- end breadcrumb section -->
+
+    </header>
+    <!-- end header -->
+
+    <!-- start main -->
+    <main>
+        <section id="detail" class="blog-detail">
+            <div class="container">
+                <div class="left" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                    <div class="img">
+                        <img src="{{ post.image.url }}" alt="">
+                    </div>
+                    <div class="content">
+                        <ul class="meta-box">
+                            <li>
+                                <i class="fa-solid fa-user fa-sm"></i>
+                                <p class="user">By {{ post.posted_by }}</p>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-calendar-days fa-sm"></i>
+                                <p class="date">{{ post.date }}</p>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-comment fa-sm"></i>
+                                <p class="comment">{{ comments|length|custom_enumeration }} comments</p>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-tags fa-sm"></i>
+                                <p class="tag">{{ post.topic}}</p>
+                            </li>
+                        </ul>
+                        <h2>{{ post.title }}</h2>
+                        <p>{{ post.content | safe }}</p>
+                        <div class="tags">
+                            <h4>Tags:</h4>
+                            <ul>
+                               {% for part in post.tags|split:"," %}
+                                    <li>
+                                        <a href="#">{{ part }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="comments-area">
+                            <div class="title">
+                                <h2>Comments ({{ comments|length|custom_enumeration }})</h2>
+                            </div>
+
+                            {% for comment in comments %}
+                                {% if forloop.counter == 1 %}
+                                <div class="comment-box">
+                                {% else %}
+                                <div class="comment-box" style="margin-top: 12px">
+                                {% endif %}
+                                    <div class="top">
+                                        <div class="user">
+                                            <img src="{% static "/assets/imgs/blog-details-img3.jpg" %}" alt="">
+                                            <p>{{ comment.fullname }}</p>
+                                        </div>
+                                        <div class="date">
+                                            <p>
+                                                <i class="fa-regular fa-calendar-days fa-md"></i>
+                                                <span>{{ comment.date }}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <p>{{ comment.comment }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div class="feedback">
+                                <div class="title">
+                                    <h2>Leave a Comment</h2>
+                                </div>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <div class="top-inputs">
+                                        <input type="text" placeholder="Fullname" name="fullname">
+                                        <input type="email" placeholder="Email" name="email">
+                                    </div>
+                                    <input type="text" placeholder="Subject" name="subject">
+                                    <textarea name="comment" id="message" style="resize: none;" cols="40" rows="40"
+                                        placeholder="Write your message" data-model-name="message"></textarea>
+                                    <button type="submit" class="btn">Send Message</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="right" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                    <div class="latest-blogs box">
+                        <div class="title">
+                            <h2>Latest Post</h2>
+                        </div>
+                        <ul>
+                            {% for post in latest_posts %}
+                            <li>
+                                <div class="left-side">
+                                    <img src="{% static "/assets/imgs/sidebar-img1.jpg" %}" alt="">
+                                </div>
+                                <div class="right-side">
+                                    <div class="top">
+                                        <p class="tag">{{ post.topic }}</p>
+                                        <div></div>
+                                        <p class="date">{{ post.date }}</p>
+                                    </div>
+                                    <div class="bottom">
+                                        <a href="{% url 'post_detail' post.id %}">{{ post.short_description | truncatechars:20 }}</a>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="tags box">
+                        <div class="title">
+                            <h2>Tags</h2>
+                        </div>
+                        <ul>
+                            {% for part in post.tags|split:"," %}
+                                <li><a href="#">{{ part }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- end main -->
+
+ <!-- start footer -->
+{% include 'template/footer.html' %}
+<!-- end footer -->
+
+
+    <!-- back to top button -->
+    <a href="#top" class="back-top-btn">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% if messages %}
+        {% for message in messages %}
+            <script>
+             Swal.fire({
+              title: 'Notification',
+              text: '{{ message }}',
+              icon: '{{ message.tags }}',
+              confirmButtonText: 'ОК'
+            });
+            </script>
+        {% endfor %}
+    
+
+    <style>
+    .success {
+        color: green
+    }
+    </style>
+{% endif %}
+
+<script src="{% static "/assets/js/common.js" %}"></script>
+<!-- added aos -->
+<script src="{% static "/assets/aos/aos-master/dist/aos.js" %}"></script>
+<script>
+    AOS.init();
+</script>
+
+</html>

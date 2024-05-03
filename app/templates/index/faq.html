@@ -1,0 +1,135 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'template/head.html' %}
+    <!-- added css -->
+    <link rel="stylesheet" href="{% static "/assets/scss/faq/faq.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/common/common.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/layout/layout.css" %}">
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <!-- start header -->
+    <header style="background-image: url('{% static "/assets/imgs/hero-banner.jpg" %}');" >
+       
+        {% include 'template/navbar.html' %}
+
+        <!-- start breadcrumb section -->
+        <section id="breadcrumb-area">
+            <div class="container" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                <h1 class="name">FAQ</h1>
+                <span>
+                    <a href="{% url 'index' %}">Home </a>
+                    <i class="fa-solid fa-arrow-right fa-sm"></i>
+                    <a class="name" href="{% url 'faq' %}">FAQ</a>
+                </span>
+
+            </div>
+        </section>
+        <!-- end breadcrumb section -->
+        <img class="hero-shape-img hero-shape-img-top" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+        <img class="hero-shape-img hero-shape-img-bottom" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+    </header>
+    <!-- end header -->
+
+    <main>
+        <section id="faq">
+            <div class="container">
+                <div class="left" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000"
+                data-aos-easing="ease-in-sine">
+                    <div class="headline">
+                        <div class="title">
+                            <h2 class="subtitle">Frequently Asked Questions</h2>
+                        </div>
+                    </div>
+                    <div class="tab-menu-area">
+                        <ul>
+                            {% for category, faq_list in result_dict.faq.items %}
+                                {% if forloop.counter == 1%}
+                                <li data-index="{{ forloop.counter }}" class="tab-menu-heading active">
+                                {% else %}
+                                <li data-index="{{ forloop.counter }}" class="tab-menu-heading">
+                                {% endif %}
+                                <div>
+                                    <p>{{ category }}</p>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    
+                        {% for category, faq_list in result_dict.faq.items %}
+                        {% if forloop.counter == 1 %}
+                        <div data-index="{{ forloop.counter }}" class="content">
+                        {% else %}
+                        <div data-index="{{ forloop.counter }}" class="content d-none">
+                        {% endif %}
+                            <div class="accordion-container">
+                                {% for faq in faq_list %}
+                                <div class="accordion">
+                                    <div class="accordion-header">
+                                        <p> {{ faq.question }}</p>
+                                        <i class="fa-solid fa-eye fa-lg d-block"></i>
+                                        <i class="fa-solid fa-eye-slash fa-lg d-none"></i>
+                                    </div>
+                                    <div class="accordion-content d-none">
+                                        <p>{{ faq.answer }}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <img style="width: 100%;" src="{% static "/assets/imgs/faq2.jpg" %}" alt="">
+                </div>
+                <div class="right" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000"
+                data-aos-easing="ease-in-sine">
+                    <img src="{% static "/assets/imgs/faq.jpg" %}" alt="">
+                    <div class="content">
+                        <div class="accordion-container">
+                            {% for faq in global_faq %}
+                            <div class="accordion">
+                                <div class="accordion-header">
+                                    <p>{{ faq.question }}</p>
+                                    <i class="fa-solid fa-eye fa-lg d-block"></i>
+                                    <i class="fa-solid fa-eye-slash fa-lg d-none"></i>
+                                </div>
+                                <div class="accordion-content d-none">
+                                    <p>{{ faq.answer }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- start newsletter section -->
+        {% include 'template/newsletter.html' %}
+        <!-- end newsletter section -->
+    </main>
+
+    <!-- start footer -->
+    {% include 'template/footer.html' %}
+    <!-- end footer -->
+
+
+    <!-- back to top button -->
+    <a href="#top" class="back-top-btn">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
+</body>
+<script src="{% static "/assets/js/common.js" %}"></script>
+<script src="{% static "/assets/js/faq.js" %}"></script>
+<!-- added aos -->
+<script src="{% static "/assets/aos/aos-master/dist/aos.js" %}"></script>
+<script>
+    AOS.init();
+</script>
+
+</html>

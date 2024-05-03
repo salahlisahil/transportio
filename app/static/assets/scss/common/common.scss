@@ -1,0 +1,307 @@
+@import '../reset';
+@import '../partials/mixin';
+
+#breadcrumb-area {
+    padding-top: 300px;
+    font-family: var(--ff-rubik);
+    color: var(--white);
+
+    h1 {
+        font-size: var(--fs-4);
+        text-transform: capitalize;
+        margin-block-end: 10px !important;
+    }
+
+    span {
+        a {
+            color: var(--white);
+            font-size: var(--fs-11);
+            transition: var(--transition);
+            &:hover {
+                color: var(--dark-orange);
+            }
+        }
+
+        i {
+            margin: 0 10px;
+        }
+    }
+}
+
+
+//animate
+.branch-count,
+.line,
+.hero-shape-img,
+.feature-head img,
+#solution img {
+    @keyframes move {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(20px);
+        }
+    }
+
+    animation: move 2s ease-in-out infinite alternate;
+}
+#newsletter {
+    padding-block: var(--section-padding);
+
+    .newsletter-area {
+        background-color: var(--dark-orange);
+        height: 223px;
+        position: relative;
+
+        .img {
+            position: relative;
+            top: -161px;
+            left: 0;
+            width: 26%;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .newsletter-content {
+            position: absolute;
+            top: 26%;
+            left: 34%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .title {
+                font-size: 3rem;
+                color: var(--prussian-blue);
+                font-family: var(--ff-oswald);
+                line-height: 1.2;
+                font-weight: var(--fw-600);
+            }
+
+            form {
+                input {
+                    background-color: var(--white);
+                    color: var(--eerie-black);
+                    font-size: var(--fs-10);
+                    height: 60px;
+                    padding-inline: 20px;
+                    margin-block-end: 10px;
+                    outline: none;
+                    border: none;
+                    transition: var(--transition);
+                    width: 80%;
+                    border-radius: 4px;
+
+                }
+
+                button {
+                    background-color: var(--prussian-blue);
+                    font-size: 20px;
+                    font-weight: 600;
+                    font-family: var(--ff-oswald);
+                    padding: 15px 30px;
+                    color: var(--white);
+                    border-radius: 4px;
+
+                }
+            }
+        }
+
+    }
+}
+
+//back to top button
+.back-top-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    background-color: var(--eerie-black);
+    color: var(--white);
+    font-size: 20px;
+    padding: 13px;
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.back-top-btn.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-10px);
+}
+
+
+//btns
+.btn {
+    position: relative;
+    color: var(--white);
+    background-color: var(--dark-orange);
+    max-width: max-content;
+    font-size: var(--fs-9);
+    padding-inline: 30px 60px;
+    letter-spacing: 1px;
+    padding-block: 12px;
+    cursor: pointer;
+}
+
+.btn::before,
+.btn::after {
+    content: "";
+    position: absolute;
+    transition: var(--transition);
+}
+
+.btn::before {
+    top: 50%;
+    right: 15px;
+    width: 25px;
+    height: 1px;
+    background-color: var(--white);
+}
+
+.btn::after {
+    top: -6px;
+    right: -6px;
+    bottom: -6px;
+    width: 20px;
+    border: 2px solid var(--dark-orange);
+    z-index: 0;
+}
+
+.btn:is(:hover, :focus)::before {
+    width: 33px;
+}
+
+.btn:is(:hover, :focus)::after {
+    width: 40px;
+}
+//headline
+.headline {
+    text-align: center;
+    .title {
+        color: var(--dark-orange);
+        text-transform: uppercase;
+        font-size: var(--fs-6);
+        font-family: var(--ff-oswald);
+        font-weight: var(--fw-600);
+        letter-spacing: 3px;
+        margin-block-end: 10px;
+    }
+
+    .subtitle {
+        color: var(--prussian-blue);
+        font-size: 2.813rem;
+        font-family: var(--ff-oswald);
+        font-weight: 600;
+        margin-block: 20px;
+    }
+
+    .text {
+        line-height: 1.4;
+        font-size: 16px;
+        font-family: var(--ff-rubik);
+        color: var(--onyx);
+        width: 56%;
+        margin: 0 auto 50px auto !important;
+    }
+}
+
+
+@media (max-width:576px){
+    .container {
+        max-width: 23rem !important;
+    }
+
+    #newsletter {
+
+        .newsletter-area {
+            height: 100vh !important;
+
+            .img {
+                width: 100% !important;
+                top: 0 !important;
+            }
+
+            .newsletter-content {
+                display: initial !important;
+                top: 55% !important;
+                left: 2% !important;
+
+                h2 {
+                    font-size: 2rem !important;
+                    padding: 30px 0;
+                }
+            }
+        }
+    }
+
+    .headline {
+        .title {
+            font-size: 20px !important;
+        }
+
+        .subtitle {
+            font-size: 25px !important;
+        }
+
+        .text {
+            font-size: 16px !important;
+            width: 100% !important;
+        }
+    }
+
+    
+
+    
+}
+
+@media (min-width:768px)and(max-width:1180px) {
+    .container {
+        max-width: 720px !important;
+    }
+
+    .newsletter-area {
+        .img {
+            top: -12px !important;
+        }
+
+        .newsletter-content {
+            display: initial !important;
+            top: -3% !important;
+
+            h2 {
+                font-size: 2rem !important;
+                padding: 30px 0;
+            }
+        }
+    }
+
+    .headline {
+        .title {
+            font-size: 20px !important;
+        }
+
+        .subtitle {
+            font-size: 30px !important;
+        }
+
+        .text {
+            margin: 0 0 30px !important;
+            font-size: 16px !important;
+        }
+    }
+}
+
+@media (min-width:1024px)and(max-width:1366px) {
+    .headline {
+        .text {
+            width: 45% !important;
+        }
+    }
+}

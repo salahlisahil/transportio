@@ -1,0 +1,413 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'template/head.html' %}
+
+    <!-- added css -->
+    <link rel="stylesheet" href="{% static "/assets/scss/style.css" %}">
+    <link rel="stylesheet" href=".{% static "/assets/scss/common/common.css" %}">
+    <link rel="stylesheet" href=".{% static "/assets/scss/layout/layout.css" %}">
+</head>
+
+<body id="top">
+    <div class="overlay"></div>
+
+    <!-- start header -->
+
+    <header style="background-image: url('{% static "/assets/imgs/hero-banner.jpg" %}');" >
+        <!-- start navbar -->
+        {% include 'template/navbar.html' %}
+        <!-- end navbar -->
+
+        <!-- start hero section -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000"><span>To every</span>
+                        direction</h2>
+                    <p data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000" class="hero-text">
+                        There are many variations of
+                        passages of worem Ipsum
+                        available, but the
+                        majority</p>
+                    <div data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+                        <a href="#service">View services</a>
+                    </div>
+                    <img class="hero-shape-img hero-shape-img-top" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+                    <img class="hero-shape-img hero-shape-img-bottom" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+                </div>
+
+            </div>
+
+        </section>
+        <!-- end hero section -->
+
+    </header>
+    <!-- end header -->
+
+    <!-- start main -->
+    <main>
+        <article>
+            <!--start about section -->
+            <section id="about">
+                <div class="container">
+                    <div class="left" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                        <img class="banner-img" src="{% static "/assets/imgs/about-banner.jpg" %}" alt="Banner png">
+                        <img class="shape" src="{% static "/assets/imgs/about-shape-2.png" %}" alt="Banner png">
+                        <div class="branch-count">
+                            <p class="history">Since 1996</p>
+                            <h1>
+                                <p>{{ statistic.value }}<span>+</span></p>
+                                <p>{{ statistic.name }}</p>
+                            </h1>
+                        </div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="right" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                        <p class="title">Why Choose Us</p>
+                        <h2>We Are Professional Logistics & cargo Agency</h2>
+                        <p class="section-text">
+                            Sed ut perspiciatis unde omnis iste natus error volup tatem accusantium dolorem que
+                            laudantium, totam
+                            inventore.
+                        </p>
+                        <ul class="list">
+                            <li class="item">
+                                <div class="icon">
+                                    <i class="fa-solid fa-chevron-right fa-sm"></i>
+                                </div>
+
+                                <p class="text">
+                                    Go beyond logistics, make the world go round and revolutionize business.
+                                </p>
+                            </li>
+
+                            <li class="item">
+                                <div class="icon">
+                                    <i class="fa-solid fa-chevron-right fa-sm"></i>
+                                </div>
+
+                                <p class="text">
+                                    Logistics through innovation, dedication, and technology. ready, set, done.
+                                </p>
+                            </li>
+
+                            <li class="item">
+                                <div class="icon">
+                                    <i class="fa-solid fa-chevron-right fa-sm"></i>
+                                </div>
+
+                                <p class="text">
+                                    We take pride in serving our customers safely. together with passion.
+                                </p>
+                            </li>
+
+                            <li class="item">
+                                <div class="icon">
+                                    <i class="fa-solid fa-chevron-right fa-sm"></i>
+                                </div>
+
+                                <p class="text">
+                                    Imagination what we can easily see is only a small percentage.
+                                </p>
+                            </li>
+
+                            <li class="item">
+                                <div class="icon">
+                                    <i class="fa-solid fa-chevron-right fa-sm"></i>
+                                </div>
+
+                                <p class="text">
+                                    Quality never goes out of style. safety, quality, professionalism.
+                                </p>
+                            </li>
+
+                            <li class="item">
+                                <div class="icon">
+                                    <i class="fa-solid fa-chevron-right fa-sm"></i>
+                                </div>
+
+                                <p class="text">
+                                    The quality shows in every move we make where business lives.
+                                </p>
+                            </li>
+
+                        </ul>
+                        <a href="{% url 'about' %}" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </section>
+            <!--end about section -->
+
+            <!-- start services section -->
+            <section id="service">
+                <div class="container">
+                    <div class="headline" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                        <p class="title">All Services</p>
+                        <h2 class="subtitle">Trusted For Our Services</h2>
+                        <p class="text">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry the standard dummy
+                            text ever since
+                            the when an
+                            printer took.
+                        </p>
+                    </div>
+                    <ul  data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                        {% for service in services %}
+                        <li>
+                            <div class="card" id="1">
+                                <div class="card-icon">
+                                    <img src="{{ service.icon.url }}" alt="">
+                                </div>
+                                <h3 class="card-title">
+                                    <span>{{ forloop.counter | custom_enumeration }}</span>
+                                    {{ service.title }}
+                                </h3>
+                                <p class="card-text">
+                                    {{ service.short_description }}
+                                </p>
+                                <a href="{% url 'service_detail' service.id %}" class="btn-link">
+                                    <i class="fa-solid fa-chevron-right fa-sm"></i>
+                                    <span class="span">View Detail</span>
+                                </a>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </section>
+            <!-- end services section -->
+
+            <!-- start feature section -->
+            <section id="feature">
+                <div class="container">
+                    <div class="feature-head">
+                        <div class="headline" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                            <p class="title">Estimation</p>
+                            <h2 class="subtitle">Has a wide range of solutions</h2>
+                            <p class="text">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry the standard
+                                dummy
+                                text ever since
+                                the when an
+                                printer took.
+                            </p>
+                        </div>
+                        <img src="{% static "/assets/imgs/counter-v2-shape1.png" %}" alt="">
+                    </div>
+                    <ul>
+                        <li data-aos="fade-left" data-aos-offset="200" data-aos-easing="ease-in-sine">
+                            <div class="feature-card">
+                                <div class="card-number">
+                                    01
+                                </div>
+                                <div class="card-icon">
+                                    <img src="{% static "/assets/imgs/feature-icon-1.png" %}" alt="">
+                                </div>
+                                <div class="card-content">
+                                    <h3>Solutions and specialized</h3>
+                                    <p>Our aim is to optimize and improve your supply chain so that we can give you the
+                                        best service</p>
+                                </div>
+
+                                <div class="card-btn">
+                                    <a href="{% url 'solutions' %}">
+                                        <i class="fa-solid fa-arrow-right fa-sm"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                            <div class="feature-card">
+                                <div class="card-number">
+                                    02
+                                </div>
+                                <div class="card-icon">
+                                    <img src="{% static "/assets/imgs/feature-icon-2.png" %}" alt="">
+                                </div>
+                                <div class="card-content">
+                                    <h3>Multiple warehouses</h3>
+                                    <p>We provide multiple drop off and pickup locations so you don't have to worry. And
+                                        you should not face any kind...</p>
+                                </div>
+
+                                <div class="card-btn">
+                                    <a href="{% url 'warehouse' %}">
+                                        <i class="fa-solid fa-arrow-right fa-sm"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine">
+                            <div class="feature-card">
+                                <div class="card-number">
+                                    03
+                                </div>
+                                <div class="card-icon">
+                                    <img src="{% static "/assets/imgs/feature-icon-3.png" %}" alt="">
+                                </div>
+                                <div class="card-content">
+                                    <h3>Tracking made easy</h3>
+                                    <p>A tracking number for the entire process. so that you can find the exact
+                                        position. this process will help you
+                                    </p>
+                                </div>
+
+                                <div class="card-btn">
+                                    <a href="{% url 'tracking' %}">
+                                        <i class="fa-solid fa-arrow-right fa-sm"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- end feature section -->
+
+            <!-- start projects section -->
+            <section id="projects">
+                <div class="container">
+                    <div class="headline" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                        <p class="title">Projects</p>
+                        <h2 class="subtitle">Featured Projects</h2>
+                        <p class="text">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry the standard dummy
+                            text ever since
+                            the when an
+                            printer took.
+                        </p>
+                    </div>
+                    <ul data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000"
+                        data-aos-easing="ease-in-sine">
+                        {% for project in projects %}
+                        <li>
+                            <div class="projects-card">
+                                <div class="card-img">
+                                    <img src="{{ project.images.first }}" alt="">
+                                </div>
+                                <div class="expand-btn">
+                                    <a href="{% url 'project_detail' project.id %}">
+                                        <i class="fa-solid fa-maximize fa-sm"></i>
+                                    </a>
+                                </div>
+                                <div class="card-content">
+                                    <p>{{ project.title_tags }}</p>
+                                    <h3>{{ project.title }}</h3>
+                                    <a href="{% url 'project_detail' project.id %}">Read more</a>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+            <!-- end projects section -->
+
+            <!-- start blog section -->
+            <section id="blog">
+                <div class="container">
+                    <div class="headline" data-aos="zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine">
+                        <p class="title">Our blogs</p>
+                        <h2 class="subtitle">Recent news & events</h2>
+                        <p class="text">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry the standard dummy
+                            text ever since
+                            the when an
+                            printer took.
+                        </p>
+                    </div>
+                    <ul class="responsive" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000"
+                        data-aos-easing="ease-in-sine">
+                        {% for post in posts %}
+                        <li>
+                            <div class="blog-card">
+                                <div class="card-img">
+                                    <img src="{{ post.image.url }}" alt="">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-time">
+{#                                        {{ post.date }}#}
+                                        <p>{{ post.date|date:"d" }}</p>
+                                        <p>{{ post.date|date:"M" }}</p>
+                                    </div>
+                                    <h3>
+                                        <a href="../blog/blog-detail.html">
+                                            {{ post.title }}
+                                        </a>
+                                    </h3>
+                                    <p class="card-text">
+                                        {{ post.short_description }}
+                                    </p>
+                                    <a href="{% url 'post_detail' post.id %}" class="btn-link">
+                                        <i class="fa-solid fa-chevron-right fa-sm"></i>
+                                        <span class="span">Read more</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </section>
+            <!-- end blog section -->
+
+            <!-- start {% static "newsletter" %} section -->
+            {% include 'template/newsletter.html' %}
+            <!-- end newsletter section -->
+        </article>
+    </main>
+    <!-- end main -->
+
+    <!-- start footer -->
+     {% include 'template/footer.html' %}
+    <!-- end footer -->
+
+    <!-- back to top button -->
+    <a href="#top" class="back-top-btn">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
+
+
+    <script src="{% static "/assets/js/common.js" %}"></script>
+    <script src="{% static "/assets/js/script.js" %}"></script>
+    <script src="{% static "/assets/js/slick.js" %}"></script>
+    <script src="{% static "/assets/js/detail.js" %}"></script>
+    <!-- added slick -->
+    <script src='{% static "/assets/slick/slick-1.8.1/slick/slick.min.js" %}'></script>
+    <script src="{% static "/assets/slick/slick-1.8.1/slick/slick.js" %}"></script>
+
+    <!-- added aos -->
+    <script src="{% static "/assets/aos/aos-master/dist/aos.js" %}"></script>
+    <script>
+        AOS.init();
+    </script>
+    {% if messages %}
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            {% for message in messages %}
+                <script>
+                 Swal.fire({
+                  title: 'Notification',
+                  text: '{{ message }}',
+                  icon: '{{ message.tags }}',
+                  confirmButtonText: 'ОК'
+                });
+                </script>
+            {% endfor %}
+        
+    
+        <style>
+        .success {
+            color: green
+        }
+        </style>
+    {% endif %}
+</body>
+
+</html>

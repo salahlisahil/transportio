@@ -1,0 +1,221 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'template/head.html' %}
+    <!-- added css -->
+    <link rel="stylesheet" href="{% static "/assets/scss/common/common.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/layout/layout.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/privacy/privacy.css" %}">
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+
+    <!-- start header -->
+    <header style="background-image: url('{% static "/assets/imgs/hero-banner.jpg" %}');">
+        {% include 'template/navbar.html' %}
+
+        <!-- start breadcrumb section -->
+        <section id="breadcrumb-area">
+            <div class="container" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                <h1 class="name">Terms & Conditions</h1>
+                <span>
+                    <a href="{% url 'index' %}">Home </a>
+                    <i class="fa-solid fa-arrow-right fa-sm"></i>
+                    <a href="{% url 'terms' %}">Terms & Conditions</a>
+                </span>
+            </div>
+        </section>
+        <img class="hero-shape-img hero-shape-img-top" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+        <img class="hero-shape-img hero-shape-img-bottom" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+        <!-- end breadcrumb section -->
+
+    </header>
+    <!-- end header -->
+    <main>
+        <section id="terms">
+            <div class="container" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000"
+                data-aos-easing="ease-in-sine">
+                <div class="headline">
+                    <p class="title">Terms & Conditions</p>
+                </div>
+                <div class="content">
+                    <p>The entire agreement between Transportio Inc. (“Broker”) and the enrolled customer, shipper
+                        and/or consignee, as the case may be (“Customer”), consists of: (i) the terms on any quote
+                        prepared by Broker for Customer, (ii) these Terms and Conditions of Transportation Services, and
+                        (iii) any additional terms and conditions proposed by Broker in writing and signed by Customer
+                        ((i) through (iii) collectively, the “Agreement”). The Agreement shall become binding when
+                        accepted by Customer either by acknowledgment or performance by Broker. These Terms and
+                        Conditions of Transportation Services shall apply to all shipments scheduled by Customer and may
+                        be amended from time to time by Broker, in its sole discretion. Any terms and conditions
+                        proposed by Customer which are additional to or inconsistent with the terms and conditions
+                        contained in the Agreement shall be void, unless specifically agreed to by Broker in writing,
+                        signed by Broker’s duly authorized representative.
+                    </p>
+                    <p>
+                        The Broker is a (i) freight broker for purposes of US domestic ground transportation, (ii)
+                        freight forwarder and/or indirect air carrier for purposes of air transportation, and (iii)
+                        freight forwarder for purposes of ocean transportation. Broker a IS NOT a freight carrier,
+                        except for those instances in which Broker expressly agrees in writing to operate as a
+                        non-vessel operating common carrier (NVOCC). The Broker reserves the right, in its sole
+                        discretion, to refuse to broker/schedule any shipment at any time.
+                    </p>
+                    <p>This web site is protected by copyright under Australian law. Unauthorised use of any part of
+                        this site is not permitted. Other than for the purposes of and subject to the conditions
+                        prescribed under the Copyright Act 1968 (Cth), no part of any material may in any form or by any
+                        means (including electronic, mechanical, microcopying, photocopying or recording) be reproduced,
+                        adapted, stored in a retrieval system or transmitted without the prior written permission of the
+                        copyright owner.
+                    </p>
+                    <p>
+                        Goods” refers to cargo transported hereunder, including all pieces which are tendered to, and
+                        accepted by, Broker on a single bill of lading.
+                    </p>
+                </div>
+                <div class="content-header">
+                    <div class="title">
+                        <h2>Cargo Insurance</h2>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>
+                        No cargo insurance will be purchased or held by Broker unless Broker has agreed otherwise in
+                        writing with Customer. Customer, at its expense, may purchase a shipper’s interest insurance
+                        policy, in which event Broker will act solely as a representative for Customer, assisting the
+                        Customer with entering a separate contract for insurance between Customer and the insurance
+                        carrier.
+                    </p>
+                    <p>
+                        Through the Customer’s purchase of a shipper’s interest insurance policy, which would be
+                        underwritten by National Union Fire Insurance Company of Pittsburgh, PA, the enrolled Customer
+                        will receive an insurance certificate denoting insurance equal to the declared value amount
+                        entered covering Goods in transit subject to the terms and conditions contained therein.
+                    </p>
+                    <p>
+                        FAILURE TO PURCHASE CARGO INSURANCE WILL RESULT IN CUSTOMER BEING LIMITED TO RECOVERY PURSUANT
+                        TO THE TERMS OF CARRIER’S GENERAL RULES TARIFF.
+                    </p>
+                    <p>
+                        THE BROKER IS NOT AN INSURANCE COMPANY AND DOES NOT OFFER OR PROVIDE INSURANCE. Further the
+                        Broker has no responsibility, liability, or involvement in the issuance of insurance, the denial
+                        of insurance, or in the payment of claims. In the event of cargo loss or damage, the certificate
+                        holder is to contact the claim agent noted on the certificate of insurance immediately. If the
+                        loss or damage is apparent, the consignee must note such loss or damage information on the
+                        Transportation Document/delivery receipt. If the loss or damage is not apparent (concealed), the
+                        certificate holder must contact the claims agent noted on the certificate within five (5)
+                        calendar days after taking delivery. Should any such insurance carrier dispute liability or
+                        refuse to settle a claim for any reason whatsoever, Customer agrees it will have no recourse
+                        against Broker.
+                    </p>
+                </div>
+                <div class="content-header">
+                    <div class="title">
+                        <h2>Right to Reject Requests for Shipping Services</h2>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>Broker reserves the right to reject any request for shipping in its sole discretion. Without
+                        limitation, any shipment containing any item that is considered a restricted article or
+                        hazardous material by the Department of Transportation (DOT), International Air Transport
+                        Association (IATA), or the International Civil Aviation Broker (ICAO), will not be shipped by
+                        Broker. Shipments containing items that cannot be transported legally or safely, include, but
+                        are not limited to:</p>
+
+                    <ul>
+                        <li>Animals</li>
+                        <li>Plants</li>
+                        <li>Chemicals</li>
+                        <li>Perishables</li>
+                        <li>Currency</li>
+                        <li>Precious Metals</li>
+                        <li>Explosives</li>
+                        <li>Precious Stones</li>
+                        <li>Liquor</li>
+                        <li>Negotiable items in Bearer Form</li>
+                    </ul>
+                </div>
+                <div class="content-header">
+                    <div class="title">
+                        <h2>Force Majeure</h2>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>Any delay or failure of performance of Broker under these Terms and Conditions of Transportation
+                        Services shall not constitute a breach or default hereof or of any Transportation Document, or
+                        give rise to any claims for damages, if and to the extent that such delay or failure is caused
+                        by an occurrence beyond the reasonable control of the Broker, including, but not limited to,
+                        acts of God, acts of governmental authorities, public enemies, acts or omissions of Customs or
+                        quarantine officials, war, riots, rebellions, strikes, sabotage, fire, explosions, accidents,
+                        floods, strikes, lockouts, labor disputes, weather conditions, mechanical delay or failure of
+                        aircraft or other equipment, the discovery of materially different site conditions, or changes
+                        in laws, regulations, or ordinances.
+                    </p>
+                </div>
+                <div class="content-header">
+                    <div class="title">
+                        <h2>Governing Law</h2>
+                    </div>
+                </div>
+                <div class="content">
+                    <p> THE VALIDITY, PERFORMANCE AND CONSTRUCTION OF THESE TERMS AND CONDITIONS AND ALL TRANSPORTATION
+                        DOCUMENTS HEREUNDER SHALL BE GOVERNED AND INTERPRETED IN ACCORDANCE WITH THE LAWS OF THE
+                        COMMONWEALTH OF PENNSYLVANIA.
+                    <p>
+                        Any action arising out of or relating to this Agreement will be subject to exclusively venue in
+                        the Court of Common Pleas of Erie County, Pennsylvania or in the United States District Court
+                        for the Western District of Pennsylvania. Customer hereby irrevocably consents and submits to
+                        the personal jurisdiction of said courts for all such purposes.
+                    </p>
+                </div>
+                <div class="content-header">
+                    <div class="title">
+                        <h2>Carrier’s and Warehouseman’s Lien</h2>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>
+                        Customer acknowledges that Broker and its subcontractors have both a carrier’s and warehouseman’s
+                        general lien on all Goods handled pursuant to any Transportation Document. This lien may be
+                        enforced by Broker and its subcontractors at any time at either a public or private sale with or
+                        without a judicial hearing. Any notice required to be given of a sale or other disposition made
+                        at least ten (10) days before a proposed action constitutes fair and reasonable notice. Any
+                        surplus from the sale or other disposition, after deduction for all sums owed to Broker, shall
+                        be transmitted to Customer, and Customer shall be liable for any deficiency. Customer also
+                        grants Broker a security interest in the Goods being handled under any Transportation Document
+                        until Customer has fully satisfied all liabilities, whenever occurring, owed to Broker. Broker
+                        has the right to withhold delivery or release of Goods if Customer is in breach of any
+                        indebtedness or obligation to Broker, even if not related to such Goods. If any such
+                        indebtedness or obligation is unsatisfied, Broker may, in addition to all other rights and
+                        remedies under other agreements and/or applicable Law, exercise all rights and remedies of a
+                        secured party under the Uniform Commercial Code, including, but not limited to the filing of
+                        financing statements covering any such Goods without Customer’s signature.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- start newsletter section -->
+       {% include 'template/newsletter.html' %}
+        <!-- end newsletter section -->
+    </main>
+    <!-- start footer -->
+    {% include 'template/footer.html' %}
+    <!-- end footer -->
+
+    <!-- back to top button -->
+    <a href="#top" class="back-top-btn">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
+</body>
+<script src="{% static "/assets/js/common.js" %}"></script>
+<!-- added aos -->
+<script src="{% static "/assets/aos/aos-master/dist/aos.js" %}"></script>
+<script>
+    AOS.init();
+</script>
+
+</html>

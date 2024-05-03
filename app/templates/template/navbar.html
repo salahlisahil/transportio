@@ -1,0 +1,56 @@
+{% load static %}
+
+
+<div class="header-container" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+    <h1>
+        <a class="logo" href="{% url 'index' %}">
+            Transportio
+        </a>
+    </h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'index' %}#about">About</a></li>
+            <li><a href="{% url 'index' %}#service">Service</a></li>
+            <li><a href="{% url 'index' %}#blog">Blog</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-content">
+        <div class="header-contact">
+            <p>Free Call In U.S.A</p>
+            <a href="tel:123456789">+123 556 8824</a>
+        </div>
+        <div class="header-contact-icon">
+            <i class="fa-solid fa-phone fa-lg"></i>
+        </div>
+    </div>
+
+    <div class="burger-menu">
+        <img src="{% static "/assets/imgs/menu.png" %}" alt="">
+    </div>
+
+
+</div>
+
+
+<div class="navbar">
+    <div class="top">
+        <h2>
+            <a class="logo" href="{% url 'index' %}">Transportio</a>
+        </h2>
+        <button class="close-button">
+            <i class="fa-solid fa-xmark fa-xl" style="color: #000;"></i>
+        </button>
+    </div>
+    <div class="bottom">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'index' %}#about">About</a></li>
+            <li><a href="{% url 'index' %}#services">Service</a></li>
+            <li><a href="{% url 'index' %}#blog">Blog</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </div>
+</div>

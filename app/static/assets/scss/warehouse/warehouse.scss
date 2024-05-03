@@ -1,0 +1,44 @@
+ @import '../reset';
+ @import '../partials/mixin';
+
+ #warehouses {
+     padding-block: var(--section-padding);
+
+     ul {
+         @include displayFlex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+
+         li {
+             padding: 20px !important;
+             background-color: var(--prussian-blue);
+             color: var(--white);
+             width: 30%;
+             border-radius: 4px;
+             transition: var(--transition);
+             margin-bottom: 20px;
+
+             .name {
+                 text-align: center;
+             }
+
+             .contact-number {
+                 color: var(--white);
+             }
+
+             p {
+                 margin: 15px 0 !important;
+             }
+             &:hover {
+                 background-color: var(--dark-orange);
+                 color: var(--black);
+
+                 a {
+                    color: var(--black);
+                 }
+
+             }
+
+         }
+     }
+ }

@@ -1,0 +1,131 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'template/head.html' %}
+    <!-- added css -->
+    <link rel="stylesheet" href="{% static "/assets/scss/common/common.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/layout/layout.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/track/track.css" %}">
+
+{#     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"#}
+{#     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="#}
+{#     crossorigin=""/>#}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <!-- start header -->
+    <header style="background-image: url('{% static "/assets/imgs/hero-banner.jpg" %}');">
+
+        <!-- start navbar -->
+        {% include 'template/navbar.html' %}
+        <!-- end navbar -->
+
+        <!-- start breadcrumb section -->
+        <section id="breadcrumb-area">
+            <div class="container" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                <h1 class="name">Track & Trace</h1>
+                <span>
+                    <a href="../index/index.html">Home </a>
+                    <i class="fa-solid fa-arrow-right fa-sm"></i>
+                    <a class="name" href="../index/index.html#feature">Estimation</a>
+                    <i class="fa-solid fa-arrow-right fa-sm"></i>
+                    <a class="name" href="tracking.html">Track & Trace</a>
+                </span>
+
+            </div>
+        </section>
+        <!-- end breadcrumb section -->
+        <img class="hero-shape-img hero-shape-img-top" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+        <img class="hero-shape-img hero-shape-img-bottom" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+
+    </header>
+    <!-- end header -->
+
+    <main>
+        <section id="tracking">
+            <div class="tracking-bg" style="background-image: url('{% static "/assets/imgs/track&trace.jpg" %}');"data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                <div class="container">
+                    <div class="headline" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                        <h2 class="subtitle">Where is my shipment?</h2>
+                    </div>
+                    <div class="tracking-inner" data-aos="fade-up" data-aos-offset="400" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                        <div class="tracking-area">
+                            <p class="info">Get instant information about your shipment. No need to await user ID or
+                                password. Just insert your tracking ID in below formula to view the latest updates on
+                                your
+                                shipment – fast, easy, and convenient.</p>
+                            <form action="#">
+                                <input type="text" placeholder="Please, enter tracking ID" id="track_id">
+                                <button type="button" class="trackBtn">
+                                    <i class="fa-solid fa-magnifying-glass-location fa-2xl"></i>
+                                </button>
+                            </form>
+                            <div class="error-notification box">
+                                <p>No results found for this ID. Please recheck that the ID is complete and correct and
+                                    in
+                                    the number format.</p>
+                            </div>
+                            <div class="success-notification box">
+                                <p class="tracking-id">23456789</p>
+                                <div class="routing">
+                                    <div class="start"></div>
+                                    <div class="tracking-dots"></div>
+                                    <div class="end"></div>
+                                </div>
+                                <div class="inner">
+                                    <div class="from-where">
+                                        <p>Germany</p>
+                                    </div>
+                                    <div class="to-where">
+                                        <p>Baku</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="map" class="map" style="height: 350px">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <!-- start newsletter section -->
+       {% include 'template/newsletter.html' %}
+        </section>
+        <!-- end newsletter section -->
+
+    </main>
+
+   <!-- start footer -->
+ {% include 'template/footer.html' %}
+<!-- end footer -->
+
+    <!-- back to top button -->
+    <a href="#top" class="back-top-btn">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+<script>
+    ajaxUrl = '{% url "tracking" %}';
+</script>
+<script src="{% static '/assets/js/tracking.js' %}"></script>
+<script src="{% static "/assets/js/common.js" %}"></script>
+<!-- added aos -->
+<script src="{% static "/assets/aos/aos-master/dist/aos.js" %}"></script>
+<script>
+    AOS.init();
+</script>
+</html>

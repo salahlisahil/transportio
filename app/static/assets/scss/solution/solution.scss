@@ -1,0 +1,61 @@
+@import '../reset';
+@import '../partials/mixin';
+
+#solution{
+    padding-block: var(--section-padding);
+    position: relative;
+    img{
+        position: absolute;
+      
+        z-index: -2;
+    }
+    .plane{
+        top: 37%;
+        left: -16%;
+    }
+    .human{
+        top: 22%;
+        right: 15%;
+    }
+    .mining{
+        bottom: 0%;
+        right: 10%;
+    }
+    .content{
+        margin: 15px 0;
+        line-height: 1.4;
+        color: var(--black);
+        font-family: var(--ff-rubik);
+        width: 60%;
+        ul{
+            li{
+                list-style: initial;
+                margin-left: 40px;
+            }
+        }
+    }
+
+    .ml-40{
+        margin-left: 40%;
+    }
+}
+
+
+@media (max-width:576px) {
+    .plane,.mining{
+        width: 52% !important;
+    }
+}
+
+
+@media (max-width:1180px) and (min-width:768px) {
+    .plane{
+        width: 52% !important;
+        top: 46% !important;
+    }
+    .mining{
+        width: 37%;
+        bottom: 12% !important;
+        right: 8% !important;
+    }
+}

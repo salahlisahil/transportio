@@ -1,0 +1,208 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   {% include 'template/head.html' %}
+    <!-- added css -->
+    <link rel="stylesheet" href="{% static "/assets/scss/common/common.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/layout/layout.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/detail/detail.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/project/project_detail.css" %}">
+</head>
+
+<body id="top">
+    <div class="overlay"></div>
+    
+    <!-- start header -->
+    <header style="background-image: url('{% static "/assets/imgs/hero-banner.jpg" %}');">
+        
+        <!-- start navbar -->
+        {% include 'template/navbar.html' %}
+        <!-- end navbar -->
+
+        <!-- start breadcrumb section -->
+        <section id="breadcrumb-area">
+            <div class="container" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                <h1 class="project-name">{{ project.title }}</h1>
+                <span>
+                    <span>
+                        <a href="../index/index.html">Home </a>
+                        <i class="fa-solid fa-arrow-right fa-sm"></i>
+                        <a href="../index/index.html#projects">Projects</a>
+                        <i class="fa-solid fa-arrow-right fa-sm"></i>
+                        <a class="project-name" href="{% url 'index' %}#projects"> {{ project.title }}</a>
+                    </span>
+                </span>
+            </div>
+        </section>
+        <img class="hero-shape-img hero-shape-img-top" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+        <img class="hero-shape-img hero-shape-img-bottom" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+        <!-- end breadcrumb section -->
+
+    </header>
+    <!-- end header -->
+
+    <main>
+        <section id="detail" class="project-detail">
+            <div class="container">
+                <div class="left" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                    <div class="img project__image">
+                        <img src="{{ project_images.main_image }}" alt="Project Image">
+                    </div>
+                    <div class="content-header">
+                        <div class="icon">
+                            <img src="{{ project.icon.url }}" alt="">
+                        </div>
+                        <div class="title">
+                            <h2 class="project-name">{{ project.title }}</h2>
+                        </div>
+                    </div>
+                    <div class="content">
+                        {{ project.description | safe }}
+                    </div>
+                    <div class="content-header">
+                        <div class="title">
+                            <h2>Project Challenge</h2>
+                        </div>
+                    </div>
+                    <div class="content">
+                        {{ project.info.project_challenge | safe  }}
+                    </div>
+                    <div class="boxes">
+                        {% for benefit in benefits %}
+                            {% if forloop.counter|divisibleby:2 %}
+                        <div class="box" style="background-color:  hsl(202, 72%, 15%);color: hsl(0, 0%, 100%);">
+                            <div class="icon-box">
+                                <img src="{% static "/assets/imgs/hammer-service.jpg" %}" alt="">
+                            </div>
+                            <div class="text">
+                                <p>{{ benefit }}</p>
+                            </div>
+                        </div>
+                            {% else %}
+                        <div class="box">
+                            <div class="icon-box">
+                                <img src="{% static "/assets/imgs/hammer-service.jpg" %}" alt="">
+                            </div>
+                            <div class="text">
+                                <p>{{ benefit }}</p>
+                            </div>
+                        </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="content-header">
+                        <div class="title">
+                            <h2>How it work</h2>
+                        </div>
+                    </div>
+                    <div class="content">
+                        {{ project.info.how_it_works | safe }}
+                    </div>
+                    <div class="video-area">
+                        <div class="img">
+                            <img src="{{ project.video_banner.url }}" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="{{ project.video }}" class="video-btn" target="_blank">
+                                <span class="txt">Play</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content-header">
+                        <div class="title">
+                            <h2>Result</h2>
+                        </div>
+                    </div>
+                    <div class="content">
+                        {{ project.info.project_result | safe }}
+                    </div>
+                </div>
+                <div class="right" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                    <img src="{{ project_images.right_images }}" alt="Project Image" class="project__image">
+                    <img src="{{ project_images.right_images_2 }}" alt="Project Image" class="project__image">
+                    <div class="info">
+                        <div class="title">
+                            <h2>Project info</h2>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="title-box">
+                                    <p>Client <span>:</span></p>
+                                </div>
+                                <div class="text-box">
+                                    <p>{{ project.info.cl_name | default:"Name" }}</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="title-box">
+                                    <p>Category <span>:</span></p>
+                                </div>
+                                <div class="text-box">
+                                    <p>{{ project.info.category | default:"Category" }}</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="title-box">
+                                    <p>Location <span>:</span></p>
+                                </div>
+                                <div class="text-box">
+                                    <p>{{ project.info.location | default:"Location" }}</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="title-box">
+                                    <p>Date <span>:</span></p>
+                                </div>
+                                <div class="text-box">
+                                    <p>{{ project.info.date | default:"Date" }}</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="title-box">
+                                    <p>Status <span>:</span></p>
+                                </div>
+                                <div class="text-box">
+                                    <p>{{ project.info.status | default:"Status" }}</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="title-box">
+                                    <p>Tags <span>:</span></p>
+                                </div>
+                                <div class="text-box">
+                                    <p>{{ project.info.tags | default:"Tags" }}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   <!-- start footer -->
+ {% include 'template/footer.html' %}
+<!-- end footer -->
+
+    <!-- back to top button -->
+    <a href="#top" class="back-top-btn">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
+
+</body>
+<script src="{% static "/assets/js/common.js" %}"></script>
+<!-- added aos -->
+<script src="{% static "/assets/aos/aos-master/dist/aos.js" %}"></script>
+<script>
+    AOS.init();
+</script>
+
+</html>

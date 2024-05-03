@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'template/head.html' %}
+    <!-- added css -->
+    <link rel="stylesheet" href="{% static "/assets/scss/common/common.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/layout/layout.css" %}">
+    <link rel="stylesheet" href="{% static "/assets/scss/warehouse/warehouse.css" %}">
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <!-- start header -->
+    <header style="background-image: url('{% static "/assets/imgs/hero-banner.jpg" %}');">
+
+        <!-- start navbar -->
+        {% include 'template/navbar.html' %}
+        <!-- end navbar -->
+
+        <!-- start breadcrumb section -->
+        <section id="breadcrumb-area">
+            <div class="container" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                <h1 class="name">Multiple Warehouses</h1>
+                <span>
+                    <a href="{% url 'index' %}">Home </a>
+                    <i class="fa-solid fa-arrow-right fa-sm"></i>
+                    <a class="name" href="{% url 'index' %}#feature">Estimation</a>
+                    <i class="fa-solid fa-arrow-right fa-sm"></i>
+                    <a class="name" href="{% url 'warehouse' %}">Multiple Warehouses</a>
+                </span>
+
+            </div>
+        </section>
+        <!-- end breadcrumb section -->
+        <img class="hero-shape-img hero-shape-img-top" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+        <img class="hero-shape-img hero-shape-img-bottom" src="{% static "/assets/imgs/hero-shape.png" %}" alt="">
+
+    </header>
+    <!-- end header -->
+    <main>
+        <section id="warehouses">
+            <div class="container">
+                <div class="headline" data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1000"
+                    data-aos-easing="ease-in-sine">
+                    <h2 class="subtitle">Warehouses List</h2>
+                    <p class="text">We provide multiple drop off and pickup locations so you don't have to worry</p>
+                </div>
+                <ul data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000" data-aos-easing="ease-in-sine">
+                    {% for warehouse in warehouses %}
+                    <li>
+                        <h3 class="name">Warehouse {{ forloop.counter }}</h3>
+                        <p class="street-name">{{ warehouse.location }}</p>
+                        <a href="tel:1234567" class="contact-number">{{ warehouse.contact_number }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+        <!-- start newsletter section -->
+        {% include 'template/newsletter.html' %}
+        <!-- end newsletter section -->
+    </main>
+
+    <!-- start footer -->
+    {% include 'template/footer.html' %}
+    <!-- end footer -->
+
+    <!-- back to top button -->
+    <a href="#top" class="back-top-btn">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
+</body>
+<script src="{% static "/assets/js/common.js" %}"></script>
+<!-- added aos -->
+<script src="{% static "/assets/aos/aos-master/dist/aos.js" %}"></script>
+<script>
+    AOS.init();
+</script>
+
+</html>
